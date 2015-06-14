@@ -1,5 +1,6 @@
 define([], function () {
     'use strict';
+    /*@ngInject*/
     var moduleConfig = function ($stateProvider) {
         var partialPath = "src/modules/dashboard/view/";
         $stateProvider

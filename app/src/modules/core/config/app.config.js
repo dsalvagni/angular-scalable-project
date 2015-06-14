@@ -1,5 +1,6 @@
 define([], function () {
     'use strict';
+    /*@ngInject*/
     var appConfig = function ($urlRouterProvider) {
         $urlRouterProvider
         /**

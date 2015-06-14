@@ -1,5 +1,6 @@
 define([], function () {
     'use strict';
+    /*@ngInject*/
     var todo = function ($rootScope, $scope, TodoSvc) {
         $scope.items = [];
         function getAllTasks() {

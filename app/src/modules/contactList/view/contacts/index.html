@@ -1,0 +1,57 @@
+<div class="page-header">
+    <h1>Contact List</h1>
+</div>
+
+<div class="form-group">
+    <a href="javascript:;" class="btn btn-block btn-primary" ng-show="!showForm" ng-click="showForm=true">New Contact</a>
+</div>
+<div class="panel panel-default" ng-show="showForm">
+    <div class="panel-heading">
+        <h3 class="panel-title">Add new contact</h3>
+    </div>
+    <div class="panel-body">
+        <form ng-submit="add(newItem)">
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="newItem.name" placeholder="Name" required/>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="newItem.telephone" placeholder="Phone number"/>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="newItem.email" placeholder="E-mail address"/>
+        </div>
+        <div class="form-group">
+            <select class="form-control" ng-model="newItem.group" ng-options="group for group in groups">
+                <option value="">Group</option>
+            </select>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-6"><button type="submit" class="btn btn-success btn-block">Save</button></div>
+            <div class="col-md-6"><a href="javascript:;" ng-click="showForm=false" class="btn btn-default btn-block">Cancel</a></div>
+        </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <div class="form-group">
+            <input type="text" class="form-control input-sm" ng-model="searchText" placeholder="Search"/>
+        </div>
+        <ul class="list-group contactList">
+            <li class="list-group-item" ng-repeat="item in items | filter:searchText"
+                ng-click="toggleSelected(item)" ng-class="{'selected':item.selected}">
+                <strong>{{item.name}}</strong> <span class="label label-default pull-right" title="{{item.group}}">{{item.group}}</span>
+                <ul class="list-unstyled list-inline">
+                    <li ng-if="item.email"><i class="glyphicon glyphicon-envelope"></i> {{item.email}}</li>
+                    <li ng-if="item.telephone"><i class="glyphicon glyphicon-phone-alt"></i> {{item.telephone}}</li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <a href="javascript:;" ng-click="deleteSelected(items)" ng-show="getSelected().length > 0"
+               class="btn btn-block btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
