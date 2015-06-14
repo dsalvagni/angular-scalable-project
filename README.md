@@ -144,8 +144,14 @@ Uma das minhas preocupações quando comecei a criar este modelo foi permitir que 
 
 ## 5\. Versão de Distribuição
 
-Para rodar a aplicação em modo de desenvolvimento é simples, basta executar o comando abaixo na pasta raiz do projeto. A aplicação estará disponível no endereço: http://localhost:8000/app/ `npm start` A versão de distruibuição é gerada a partir de uma _task_ do Grunt, executada pelo comando abaixo. `grunt dist` Após executada a _task_, a aplicação estará disponível na pata **/dist** e pode ser usado em produção.
+Para rodar a aplicação em modo de desenvolvimento é simples, basta executar o comando abaixo na pasta raiz do projeto. A aplicação estará disponível no endereço: http://localhost:8000/app/ `npm start` 
+
+A versão de distruibuição é gerada a partir de uma _task_ do Grunt, executada pelo comando abaixo. `grunt dist` Após executada a _task_, a aplicação estará disponível na pata **/dist** e pode ser usado em produção.
 
 ## 6\. Considerações
 
-Esse modelo não é uma regra, é uma alternativa. Uma das maravilhas de trabalhar com projetos web é poder construí-los de diversas maneiras dependendo, principalmente, do objetivo final. Porém, quando se trabalha em empresas que mantém diversos projetos com suas respectivas equipes, é importante manter as equipes alinhadas quanto ao padrão de desenvolvimento de código. Quando estruturei esse modelo, meu objetivo foi criar um padrão para desenvolvimento de aplicações em equipes que não necessariamente iniciam o projeto junto. Mas sim, equipes que são montadas por desenvolvedores alocados de um projeto ou de outro, o que é uma prática comum. Dessa forma, todo desenvolvedor que entra no projeto, independente da fase que isso acontece, possui um modelo de aplicação para seguir e irá produzir, em toeria, um código legível por todas os desenvolvedores que participam do projeto. Esse modelo não resolve todos os problemas de padronização de código, mas tenho certeza de que se aplicado, será fundamental - seguido por práticas como code review, refatoring e outras.
+Esse modelo não é uma regra, é uma alternativa. Uma das maravilhas de trabalhar com projetos web é poder construí-los de diversas maneiras dependendo, principalmente, do objetivo final. Porém, quando se trabalha em empresas que mantém diversos projetos com suas respectivas equipes, é importante manter as equipes alinhadas quanto ao padrão de desenvolvimento de código. 
+
+Quando estruturei esse modelo, meu objetivo foi criar um padrão para desenvolvimento de aplicações em equipes que não necessariamente iniciam o projeto junto. Mas sim, equipes que são montadas por desenvolvedores alocados de um projeto ou de outro, o que é uma prática comum. Dessa forma, todo desenvolvedor que entra no projeto, independente da fase que isso acontece, possui um modelo de aplicação para seguir e irá produzir, em toeria, um código legível por todas os desenvolvedores que participam do projeto. 
+
+Esse modelo não resolve todos os problemas de padronização de código, mas tenho certeza de que se aplicado, será fundamental - seguido por práticas como code review, refatoring e outras.
