@@ -1,0 +1,17 @@
+[
+  {
+    "description": "Drink all the beers",
+    "done": true,
+    "selected": true
+  },
+  {
+    "description": "Sleep everywhere",
+    "done": true,
+    "selected": false
+  },
+  {
+    "description": "Wake up regret",
+    "done": false,
+    "selected": false
+  }
+]

@@ -1,17 +1,12 @@
-(function(){
+define([
+    '../../config/namespace',
+    './controller/appCtrl',
+    './config/module.config'
+], function (namespace,
+             appCtrl,
+             moduleConfig) {
     'use strict';
-    define([
-        '../../config/namespace',
-        './controller/AppController',
-        './config/module.config'
-    ],function(
-        namespace,
-        AppController,
-        moduleConfig
-    )
-    {
-        angular.module(namespace+'.app',['ngRoute',namespace+'.navigation'])
-            .controller('module/app/AppController',AppController)
-            .config(moduleConfig);
-    });
-})();
+    angular.module(namespace + '.app', ['ngRoute', namespace + '.navigation'])
+        .controller('appCtrl', appCtrl)
+        .config(moduleConfig);
+});

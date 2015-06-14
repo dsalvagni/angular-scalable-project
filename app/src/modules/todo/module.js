@@ -2,19 +2,19 @@
     'use strict';
     define([
         '../../config/namespace',
-        './controller/TodoController',
-        './service/TodoService',
+        './controller/todoCtrl',
+        './service/todoSvc',
         './config/module.config',
     ], function (namespace,
-                 TodoController,
-                 TodoService,
+                 todoCtrl,
+                 todoSvc,
                  moduleConfig) {
         angular.module(namespace + '.todo', ['ui.router', namespace + '.navigation'])
-            .controller('module/todo/TodoController', TodoController)
-            .service('TodoService', TodoService)
+            .controller('todoCtrl', todoCtrl)
+            .service('todoSvc', todoSvc)
             .config(moduleConfig)
-            .run(['PrimaryNavigationProvider', function (PrimaryNavigationProvider) {
-                PrimaryNavigationProvider.add(
+            .run(['PrimaryNavigation', function (PrimaryNavigation) {
+                PrimaryNavigation.add(
                     {
                         title: "Todo",
                         stateName: "todo",

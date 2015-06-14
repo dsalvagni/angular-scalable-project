@@ -10,14 +10,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Scalable AngularJS App</title>
+    <title>Scalable AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script data-main="main.js" src="vendor/requirejs/require.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/css/main.min.css"/>
 </head>
-<body ng-controller="module/app/AppController">
+<body ng-controller="appCtrl">
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">Scalable Project</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" ng-if="primaryNavigation.length > 0">
@@ -42,6 +42,10 @@
 </nav>
 <div class="container">
     <div ui-view></div>
+    <footer class="footer">
+        <hr/>
+        <p class="text-center">Made with &hearts; by <a href="http://dsalvagni.com.br">Daniel Salvagni</a></p>
+    </footer>
 </div>
 </body>
 </html>

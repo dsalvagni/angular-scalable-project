@@ -1,5 +1,3 @@
-(function () {
+define([], function () {
     'use strict';
-    define([], function () {
-    });
-})();
+});

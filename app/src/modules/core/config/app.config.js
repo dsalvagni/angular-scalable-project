@@ -1,15 +1,13 @@
-(function () {
+define([], function () {
     'use strict';
-    define([], function () {
-        var AppConfig = function ($urlRouterProvider) {
-            $urlRouterProvider
-            /**
-             * Redirect to root
-             */
-                .otherwise('/dashboard');
-        };
+    var appConfig = function ($urlRouterProvider) {
+        $urlRouterProvider
+        /**
+         * Redirect to root
+         */
+            .otherwise('/dashboard');
+    };
 
-        AppConfig.$inject = ['$urlRouterProvider'];
-        return AppConfig;
-    });
-})();
+    appConfig.$inject = ['$urlRouterProvider'];
+    return appConfig;
+});

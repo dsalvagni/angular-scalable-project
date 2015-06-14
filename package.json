@@ -2,13 +2,14 @@
   "name": "angular-scalable-project",
   "devDependencies": {
     "grunt": "^0.4.*",
+    "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-watch": "^0.6.1",
     "http-server": "^0.6.1",
     "karma": "~0.10",
-    "protractor": "^1.1.1",
-    "http-server": "^0.6.1",
     "karma-junit-reporter": "^0.2.2",
+    "protractor": "^1.1.1",
     "requirejs": "^2.1.17",
     "shelljs": "^0.2.6"
   },
