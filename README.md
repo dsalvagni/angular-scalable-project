@@ -1,8 +1,14 @@
-Quando comecei a estudar o AngularJS e a procurar exemplos de uso e aplicações, sempre me deparava com aplicações simples, sem muitas implementações. O que é bom para pegar o conceito mas não ajuda muito quando é necessário estruturar uma aplicação que irá crescer significativamente. Assim, compartilho a minha estrutura de projetos para aplicações de larga escala, tornando modular - como deve ser - e de fácil manutenção.
+Quando comecei a estudar o AngularJS e a procurar exemplos de uso e aplicações, sempre me deparava com aplicações simples, sem muitas implementações. O que é bom para pegar o conceito mas não ajuda muito quando é necessário estruturar uma aplicação que irá crescer significativamente. 
+
+Assim, compartilho a minha estrutura de projetos para aplicações de larga escala, tornando modular - como deve ser - e de fácil manutenção.
 
 ## 1\. Introdução
 
-Essa é uma ideia de estrutura de aplicação que tem funcionado muito bem e esse é o principal motivo de eu compartilhar. Para exemplificar de uma forma mais clara, criei um projeto simples, com 2 módulos e 2 componentes, para que seja visível a utilização dessa estrutura de projeto. Podes conferir o projeto [aqui](https://github.com/dsalvagni/angular-scalable-project) e executar uma versão demo [aqui](http://www.dsalvgni.com.br/angular-scalable-project). A principal aplicação desses conceitos é no modelo Single Page Application com um arquivo _bundle_ com todos os módulos. Pretendo aprimorar esses modelo para usar, mesmo na SPA, um modo de carregar os módulos dinamicamente conforme requisitado. Usando, dessa forma, o lazy load com o RequireJS. Com o conceito discutido nesse post, é possível configurar o compile do RequireJS no Gruntfile.js para compilar módulo a módulo, como se cada módulo fosse um _bundle_. Acredito que seja pouco vantajoso esse formato, porque o volume de requisições de arquivos continuara alto.
+Essa é uma ideia de estrutura de aplicação que tem funcionado muito bem e esse é o principal motivo de eu compartilhar. Para exemplificar de uma forma mais clara, criei um projeto simples, com 2 módulos e 2 componentes, para que seja visível a utilização dessa estrutura de projeto. Podes conferir o projeto [aqui](https://github.com/dsalvagni/angular-scalable-project) e executar uma versão demo [aqui](http://www.dsalvgni.com.br/angular-scalable-project). 
+
+A principal aplicação desses conceitos é no modelo Single Page Application com um arquivo _bundle_ com todos os módulos. Pretendo aprimorar esses modelo para usar, mesmo na SPA, um modo de carregar os módulos dinamicamente conforme requisitado. Usando, dessa forma, o lazy load com o RequireJS. 
+
+Com o conceito discutido nesse post, é possível configurar o compile do RequireJS no Gruntfile.js para compilar módulo a módulo, como se cada módulo fosse um _bundle_. Acredito que seja pouco vantajoso esse formato, porque o volume de requisições de arquivos continuara alto.
 
 ### 1.1 Requisitos e Dependências
 
