@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="PhantomJS 1.9.8 (Windows 8)" package="" timestamp="2015-06-14T13:45:37" id="0" hostname="danielsalvagni" tests="1" errors="0" failures="0" time="0.019">
+  <testsuite name="Chrome 43.0.2357 (Windows 8.1)" package="" timestamp="2015-06-14T22:40:03" id="0" hostname="danielsalvagni" tests="2" errors="0" failures="0" time="7.94">
     <properties>
-      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34"/>
+      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36"/>
     </properties>
-    <testcase name="should TodoCtrl be define" time="0.019" classname="PhantomJS 1.9.8 (Windows 8).ModuleLargeApp_todo"/>
+    <testcase name="should todoCtrl be define" time="3.953" classname="Chrome 43.0.2357 (Windows 8.1).ModuleLargeApp_todo"/>
+    <testcase name="should contactsCtrl be define" time="3.987" classname="Chrome 43.0.2357 (Windows 8.1).ModuleLargeApp_contacts"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>

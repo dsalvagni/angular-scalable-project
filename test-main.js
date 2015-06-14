@@ -13,7 +13,8 @@ requirejs.config({
     paths: {
         angular: 'vendor/angular/angular.min',
         'angular-route': 'vendor/angular/angular-route.min',
-        'angular-ui-router': 'vendor/angular/angular-ui-router.min'
+        'angular-ui-router': 'vendor/angular/angular-ui-router.min',
+        'mainApp': 'app.js'
     },
     shim: {
         angular: {
@@ -27,9 +28,6 @@ requirejs.config({
         },
         'bootstrap': {
             deps: ['jquery']
-        },
-        mainApp: {
-            exports: 'mainApp'
         }
     },
     deps: tests,
