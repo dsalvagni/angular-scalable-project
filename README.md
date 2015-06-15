@@ -4,7 +4,7 @@ Assim, compartilho a minha estrutura de projetos para aplicações de larga escala
 
 ## 1\. Introdução
 
-Essa é uma ideia de estrutura de aplicação que tem funcionado muito bem e esse é o principal motivo de eu compartilhar. Para exemplificar de uma forma mais clara, criei um projeto simples, com 2 módulos e 2 componentes, para que seja visível a utilização dessa estrutura de projeto. Podes conferir o projeto [aqui](https://github.com/dsalvagni/angular-scalable-project) e executar uma versão demo [aqui](http://www.dsalvgni.com.br/angular-scalable-project). 
+Essa é uma ideia de estrutura de aplicação que tem funcionado muito bem e esse é o principal motivo de eu compartilhar. Para exemplificar de uma forma mais clara, criei um projeto simples, com 2 módulos e 2 componentes, para que seja visível a utilização dessa estrutura de projeto. Podes conferir o projeto [aqui](https://github.com/dsalvagni/angular-scalable-project) e executar uma versão demo [aqui](http://www.dsalvagni.com.br/angular-scalable-project).
 
 A principal aplicação desses conceitos é no modelo Single Page Application com um arquivo _bundle_ com todos os módulos. Pretendo aprimorar esses modelo para usar, mesmo na SPA, um modo de carregar os módulos dinamicamente conforme requisitado. Usando, dessa forma, o lazy load com o RequireJS. 
 
