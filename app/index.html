@@ -13,9 +13,9 @@
     <title>Scalable AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script data-main="main.js" src="vendor/requirejs/require.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.custom.min.css"/>
     <link rel="stylesheet" href="assets/css/main.min.css"/>
+    <script data-main="main.js" src="vendor/requirejs/require.js"></script>
 </head>
 <body ng-controller="appCtrl">
 <nav class="navbar navbar-default navbar-static-top">
@@ -33,7 +33,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" ng-if="primaryNavigation.length > 0">
                 <li ng-repeat="item in primaryNavigation | orderBy: 'order'" ui-sref-active="active">
-                    <a ui-sref="{{item.stateName}}">{{item.title}}</a>
+                    <a ui-sref="{{item.stateName}}" ng-bind="item.title"></a>
                 </li>
             </ul>
         </div>
