@@ -8,7 +8,7 @@ define([
 /**
  * Then load all components...
  */
-    , 'src/components/todo/undone/component'
+    , 'src/components/todo/pending/component'
     , 'src/components/contactList/phoneBook/component'
 /**
  * ...and modules.
@@ -38,7 +38,7 @@ define([
     /**
      * App components
      */
-        , namespace + '.components.todo.undone'
+        , namespace + '.components.todo.pending'
         , namespace + '.components.contacts.phoneBook'
     ])
         .config(appConfig)

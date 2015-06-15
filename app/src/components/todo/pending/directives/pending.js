@@ -1,10 +1,10 @@
 define([], function () {
     "use strict";
     var undone = function () {
-        var partialPath = "src/components/todo/undone/view/";
+        var partialPath = "src/components/todo/pending/view/";
         return {
             restrict: 'E',
-            templateUrl: partialPath + '_undone.html',
+            templateUrl: partialPath + '_pending.html',
             /*@ngInject*/
             controller: ['$scope', 'todoSvc', function ($scope, todoSvc) {
                 var items = [];

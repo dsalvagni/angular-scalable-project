@@ -12,8 +12,8 @@ app.js
 src/config/namespace.js
 src/modules/core/config/app.config.js
 src/modules/core/config/app.bootstrap.js
-src/components/todo/undone/directives/undone.js
-src/components/todo/undone/component.js
+src/components/todo/pending/directives/pending.js
+src/components/todo/pending/component.js
 src/components/contactList/phoneBook/directives/phoneBook.js
 src/components/contactList/phoneBook/component.js
 src/modules/navigation/provider/PrimaryNavigationProvider.js
