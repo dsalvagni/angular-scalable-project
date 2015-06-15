@@ -22,7 +22,7 @@ Com o conceito discutido nesse post, é possível configurar o compile do RequireJ
 
 ## 2\. Conceito
 
-A estrutura da aplicação é dividia em **módulos** e **componentes**. E, abaixo dessa, é feita a divisão por feature. Os **módulos** são uma visão macro de uma funcionalidade e podem conter uma coleção de _componentes_. Por exemplo, em uma aplicação de rede social, o módulo de _perfil_ irá conter componentes do tipo: meu amigos, minhas fotos. Dessa forma, os **componentes** representam uma visão micro de uma funcionalidade ou uma função específica redundante, que pode ser utilizada em diversos momentos, tornando esse componente independente.
+A estrutura da aplicação é dividia em **módulos** e **componentes**. E, abaixo dessa, é feita a divisão por feature. Os **módulos** são uma visão macro de uma funcionalidade e podem conter uma coleção de _componentes_. Por exemplo, em uma aplicação de rede social, o módulo de _perfil_ irá conter componentes do tipo: meus amigos, minhas fotos. Dessa forma, os **componentes** representam uma visão micro de uma funcionalidade ou uma função específica redundante, que pode ser utilizada em diversos momentos.
 
 ## 3\. Estrutura
 
@@ -116,23 +116,23 @@ Todas as views são organizadas em pastas relacionadas aos respectivos controller
 
 Conforme mencionado anteriormente, os componentes são as visões micros das funcionalidades da aplicação. Ainda, podem ser componentes independentes de qualquer módulo, com funcionalidades exclusivos. Podem conter seus próprios controllers, services, filters, etc. Os componentes estão organizados da seguinte maneira, dentro da pasta /src/components:
 
-#### /{contexto}
+#### /{contexto}/{componente}
 
 O contexto agrupa os componentes. Como no exemplo mencionado acima, da rede social, o contexto dos componentes seria: perfil. Nesse projeto, temos 2 contextos: todo e contactList.
 
-#### /{contexto}/directives
+#### /{contexto}/{componente}/directives
 
 Contém todas as diretivas relacionadas ao componente.
 
-#### /{contexto}/controllers*
+#### /{contexto}/{componente}/controllers*
 
 Contém todas as controllers relacionadas ao componente. * Só recomendo o uso de controllers externos caso o código seja bem extenso, que fique ruim manter no mesmo código da diretiva.
 
-#### /{contexto}/view
+#### /{contexto}/{componente}/view
 
 Contém todas as views do componente. Todas as views devem conter o prefixo "_", como no exemplo: "_undone.html". É mais fácil de identificar quando estiver depurando a aplicação.
 
-#### /{contexto}/component.js
+#### /{contexto}/{componente}/component.js
 
 Da mesma forma que os módulos, os componentes possuem o arquivo de instancia do componente que carrega os arquivos com o AMD e registra no angular.
 
