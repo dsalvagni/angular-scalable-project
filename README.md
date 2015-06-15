@@ -108,7 +108,7 @@ Contém todos os arquivos de testes unitários.
 
 Todas as views são organizadas em pastas relacionadas aos respectivos controllers. Caso exista um view parcial, comum a mais de um módulo, deve ser usada na pasta /view/partial. Caso seja uma view parcial, comum apenas a um controller, fica dentro da pasta da view do controller, com prefixo "_". Exemplo: "_sidebar.html"
 
-#### /modules.js
+#### /module.js
 
 É o arquivo da instancia do módulo. Todas os arquivos do módulo e dependências são carregados usando o AMD e registrados no angular para posteriormente serem relacionados no arquivo do módulo principal.
 
@@ -150,7 +150,7 @@ Uma das minhas preocupações quando comecei a criar este modelo foi permitir que 
 
 ## 5\. Versão de Distribuição
 
-Para rodar a aplicação em modo de desenvolvimento é simples, basta executar o comando abaixo na pasta raiz do projeto. A aplicação estará disponível no endereço: http://localhost:8000/app/ `npm start` 
+Para rodar a aplicação em modo de desenvolvimento é simples, basta executar o comando abaixo na pasta raiz do projeto. A aplicação estará disponível no endereço: http://localhost:8000/app/ `npm start`
 
 A versão de distruibuição é gerada a partir de uma _task_ do Grunt, executada pelo comando abaixo. `grunt dist` Após executada a _task_, a aplicação estará disponível na pata **/dist** e pode ser usado em produção.
 

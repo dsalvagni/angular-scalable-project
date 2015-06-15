@@ -1,0 +1,1 @@
+define(["src/config/namespace","app"],function(e){"use strict";var o,t;describe("ModuleLargeApp.todo",function(){beforeEach(function(){o=module(e+".todo")}),it("should todoCtrl be define",inject(function(e,o){var n=e.$new();t=o("todoCtrl",{$scope:n}),expect(t).toBeDefined()}))})});

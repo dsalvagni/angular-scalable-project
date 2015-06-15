@@ -1,0 +1,26 @@
+[
+  {
+    "name": "David Gimour",
+    "telephone": "9999-9991",
+    "email": "david@gilmour.com",
+    "group": "Family"
+  },
+  {
+    "name": "Dave Grohl",
+    "telephone": "9999-9992",
+    "email": "dave@grohl.com",
+    "group": "Friends"
+  },
+  {
+    "name": "Eric Clapton",
+    "telephone": "9999-9993",
+    "email": "eric@clapton.com",
+    "group": "Friends"
+  },
+  {
+    "name": "Neil Peart",
+    "telephone": "9999-9993",
+    "email": "neil@peart.com",
+    "group": "Others"
+  }
+]

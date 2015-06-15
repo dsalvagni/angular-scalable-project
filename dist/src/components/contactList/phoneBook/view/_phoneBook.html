@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">PhoneBook</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <input type="text" class="form-control input-sm" ng-model="searchText" placeholder="Search..."/>
+        </div>
+    </div>
+    <ul class="list-group contactList scrollable">
+        <li class="list-group-item" ng-repeat="item in items">
+            <strong>{{item.name}}</strong> <span class="label label-default pull-right" title="{{item.group}}">{{item.group}}</span>
+            <ul class="list-unstyled list-inline">
+                <li ng-if="item.email"><i class="glyphicon glyphicon-envelope"></i> {{item.email}}</li>
+                <li ng-if="item.telephone"><i class="glyphicon glyphicon-phone-alt"></i> {{item.telephone}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

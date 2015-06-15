@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Chrome 43.0.2357 (Windows 8.1)" package="" timestamp="2015-06-14T22:29:17" id="0" hostname="danielsalvagni" tests="0" errors="1" failures="0" time="0">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36"/>
+    </properties>
+    <system-out><![CDATA[Chrome 43.0.2357 (Windows 8.1) LOG: ERROR
+ 'There is no timestamp for base/app/src/config/namespace.js!',Chrome 43.0.2357 (Windows 8.1) LOG: ERROR
+ 'There is no timestamp for base/app/app.js!',Chrome 43.0.2357 (Windows 8.1) ERROR
+	Uncaught Error: Script error for: src/config/namespace
+	http://requirejs.org/docs/errors.html#scripterror
+	at c:/Users/Daniel/Documents/www/Senior/ModularLargeApp/node_modules/requirejs/require.js:141
+,Chrome 43.0.2357 (Windows 8.1) ERROR
+	Uncaught Error: Script error for: app
+	http://requirejs.org/docs/errors.html#scripterror
+	at c:/Users/Daniel/Documents/www/Senior/ModularLargeApp/node_modules/requirejs/require.js:141
+
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>

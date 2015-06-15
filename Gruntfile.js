@@ -32,36 +32,38 @@ module.exports = function (grunt) {
         },
         requirejs: {
             compile: {
-                appDir:'./app',
-                baseUrl: "./",
-                mainConfigFile: 'main.js',
-                modules:[
-                    {name:'app'}
-                ],
-                dir: "./dist",
-                out: "./dist",
-                keepBuildDir: true,
-                locale: "en-us",
-                optimize: "uglify2",
-                skipDirOptimize: false,
-                generateSourceMaps: false,
-                normalizeDirDefines: "skip",
-                uglify2: {
-                    output: {
-                        beautify: false
+                options: {
+                    appDir: './app/',
+                    baseUrl: "./",
+                    mainConfigFile: 'app/main.js',
+                    modules: [
+                        {name: 'app'}
+                    ],
+                    dir: "./dist",
+                    //out: "./dist",
+                    keepBuildDir: true,
+                    locale: "en-us",
+                    optimize: "uglify2",
+                    skipDirOptimize: false,
+                    generateSourceMaps: false,
+                    normalizeDirDefines: "skip",
+                    uglify2: {
+                        output: {
+                            beautify: false
+                        },
+                        compress: {
+                            sequences: true,
+                            global_defs: {
+                                DEBUG: false
+                            }
+                        },
+                        warnings: false,
+                        mangle: true
                     },
-                    compress: {
-                        sequences: false,
-                        global_defs: {
-                            DEBUG: false
-                        }
-                    },
-                    warnings: true,
-                    mangle: false
-                },
-                findNestedDependencies: true,
-                removeCombined: true,
-                preserveLicenseComments: false
+                    findNestedDependencies: true,
+                    removeCombined: true,
+                    preserveLicenseComments: false
+                }
             }
         }
     });
@@ -71,5 +73,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('dist', ['less', 'copy', 'requirejs']);
 
 };
