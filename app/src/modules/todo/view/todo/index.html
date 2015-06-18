@@ -8,7 +8,7 @@
 <div class="todoList">
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="item in items">
-            <input type="checkbox" ng-model="item.selected"/>
+            <input type="checkbox" ng-model="item.done"/>
             <span ng-class="{complete: item.done}">{{item.description}}</span>
         </li>
     </ul>
