@@ -1,7 +1,7 @@
 define([
     '../../config/namespace',
-    './controller/todoCtrl',
-    './service/todoSvc',
+    './controller/TodoCtrl',
+    './service/TodoSvc',
     './config/module.config',
 ], function (namespace,
              todoCtrl,

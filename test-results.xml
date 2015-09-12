@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Chrome 44.0.2403 (Windows 7)" package="" timestamp="2015-08-17T13:38:45" id="0" hostname="PCBNU006778" tests="2" errors="0" failures="0" time="7.982">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36"/>
+    </properties>
+    <testcase name="should contactsCtrl be define" time="3.983" classname="Chrome 44.0.2403 (Windows 7).ModuleLargeApp_contacts"/>
+    <testcase name="should todoCtrl be define" time="3.999" classname="Chrome 44.0.2403 (Windows 7).ModuleLargeApp_todo"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>
