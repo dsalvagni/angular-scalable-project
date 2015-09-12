@@ -27,7 +27,6 @@ module.exports = function (grunt) {
             default: {
                 src: 'app/src/**/*.html',
                 dest: 'dist/src/resources/views.js',
-
                 options: {
                     module: "resources.views",
                     standalone:true,
