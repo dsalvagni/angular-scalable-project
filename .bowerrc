@@ -1,0 +1,6 @@
+{
+  "cwd":"./",
+  "directory": "./app/vendor/",
+  "analytics": false,
+  "timeout": 120000
+}
