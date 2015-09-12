@@ -1,4 +1,13 @@
-Quando comecei a estudar o AngularJS e a procurar exemplos de uso e aplicações, sempre me deparava com aplicações simples, sem muitas implementações. O que é bom para pegar o conceito mas não ajuda muito quando é necessário estruturar uma aplicação que irá crescer significativamente. 
+# Update
+- Adicionei o controle de pacotes pelo [Bower](http://bower.io), portanto, o Bower é uma dependência. Basta instalá-lo como NPM.
+> bower install && grunt
+- Adicionei uma task no grunt para relacionar as dependências do bower nas configurações do requirejs (main.js).
+  Para adicionar no requireJS, basta rodar a task abaixo:
+> grunt bowerRequirejs
+  
+---
+
+Quando comecei a estudar o AngularJS e a procurar exemplos de uso e aplicações, sempre me deparava com aplicações simples, sem muitas implementações. O que é bom para pegar o conceito mas não ajuda muito quando é necessário estruturar uma aplicação que irá crescer significativamente.
 
 Assim, compartilho a minha estrutura de projetos para aplicações de larga escala, tornando modular - como deve ser - e de fácil manutenção.
 
@@ -17,8 +26,9 @@ Com o conceito discutido nesse post, é possível configurar o compile do RequireJ
 3.  [RequireJS](http://requirejs.org)
 4.  [AMD](http://requirejs.org/docs/whyamd.html)
 5.  [Grunt](http://gruntjs.com)
-6.  [KarmaJS](http://karma-runner.github.io/0.12/index.html)
-7.  [Protractor](https://angular.github.io/protractor/)
+6.  [Bower](http://bower.io)
+7.  [KarmaJS](http://karma-runner.github.io/0.12/index.html)
+8.  [Protractor](https://angular.github.io/protractor/)
 
 ## 2\. Conceito
 

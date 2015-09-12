@@ -1,7 +1,9 @@
 {
   "name": "angular-scalable-project",
   "devDependencies": {
+    "bower": "^1.5.2",
     "grunt": "^0.4.*",
+    "grunt-bower-requirejs": "^2.0.0",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-requirejs": "^0.4.4",
@@ -9,6 +11,7 @@
     "http-server": "^0.6.1",
     "karma": "~0.10",
     "karma-junit-reporter": "^0.2.2",
+    "load-grunt-tasks": "^3.2.0",
     "protractor": "^1.1.1",
     "requirejs": "^2.1.17",
     "shelljs": "^0.2.6"

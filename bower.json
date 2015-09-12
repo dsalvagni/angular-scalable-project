@@ -1,0 +1,17 @@
+{
+  "name": "angular-scalable-project",
+  "version": "0.1.1",
+  "homepage": "https://github.com/dsalvagni/angular-scalable-project",
+  "authors": [
+    "Daniel Salvagni <danielsalvagni@gmail.com>"
+  ],
+  "description": "Skeleton to build scalable single-page applications",
+  "main": "app/app.js",
+  "keywords": [
+    "angularjs",
+    "requirejs",
+    "AMD",
+    "SPA"
+  ],
+  "license": "MIT"
+}

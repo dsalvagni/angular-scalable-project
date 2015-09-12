@@ -12,6 +12,14 @@ module.exports = function (grunt) {
                 }
             }
         },
+        bowerRequirejs: {
+            target: {
+                rjsConfig: 'app/main.js',
+                options: {
+                    exclude: ['requirejs']
+                }
+            }
+        },
         watch: {
             files: ['app/**/*.less'],
             tasks: ['less']
@@ -40,7 +48,6 @@ module.exports = function (grunt) {
                         {name: 'app'}
                     ],
                     dir: "./dist",
-                    //out: "./dist",
                     keepBuildDir: true,
                     locale: "en-us",
                     optimize: "uglify2",
@@ -67,12 +74,11 @@ module.exports = function (grunt) {
             }
         }
     });
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['watch']);
+    require('load-grunt-tasks')(grunt);
+
+
+    grunt.registerTask('default', ['bowerRequirejs']);
     grunt.registerTask('dist', ['less', 'copy', 'requirejs']);
 
 };

@@ -1,6 +1,7 @@
 logs/*
 .grunt/*
 dist/
+app/vendor/*
 !.gitkeep
 node_modules/
 bower_components/
