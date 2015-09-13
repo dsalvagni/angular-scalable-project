@@ -2,7 +2,7 @@ logs/*
 .grunt/*
 dist/
 test-results.xml
-app/vendor/*
+app/vendor
 !.gitkeep
 node_modules/
 bower_components/
