@@ -2,7 +2,7 @@ define([
     'src/config/namespace', 'app'], function (namespace) {
     'use strict';
     var m, todoCtrl;
-    describe('ModuleLargeApp.todo', function () {
+    describe(namespace + '.todo', function () {
         beforeEach(function () {
             m = module(namespace + '.todo');
         });
