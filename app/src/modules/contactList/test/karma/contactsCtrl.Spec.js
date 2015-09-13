@@ -2,7 +2,7 @@ define([
     'src/config/namespace', 'app'], function (namespace) {
     'use strict';
     var m, contactsCtrl;
-    describe('ModuleLargeApp.contacts', function () {
+    describe(namespace+'.contacts', function () {
         beforeEach(function () {
             m = module(namespace + '.contacts');
         });

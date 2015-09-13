@@ -3,8 +3,7 @@ define([
  * References first
  */
     'src/config/namespace'
-    , 'src/modules/core/config/app.config'
-    , 'src/modules/core/config/app.bootstrap'
+    , 'src/resources/views'
 /**
  * Then load all components...
  */
@@ -13,23 +12,27 @@ define([
 /**
  * ...and modules.
  */
+    , 'src/modules/core/module'
     , 'src/modules/navigation/module'
     , 'src/modules/app/module'
     , 'src/modules/todo/module'
     , 'src/modules/dashboard/module'
     , 'src/modules/contactList/module'
 
-], function (namespace
-    , appConfig
-    , appBootstrap) {
+], function (namespace) {
     'use strict';
     angular.module(namespace, [
         'ngRoute'
         , 'ui.router'
-
+    /**
+     * We need to load the resources before everything.
+     */
+        ,'resources.views'
     /**
      * App modules
      */
+
+        , namespace + '.core'
         , namespace + '.app'
         , namespace + '.todo'
         , namespace + '.dashboard'
@@ -40,9 +43,7 @@ define([
      */
         , namespace + '.components.todo.pending'
         , namespace + '.components.contacts.phoneBook'
-    ])
-        .config(appConfig)
-        .run(appBootstrap);
+    ]);
     return {
         name: namespace
     };

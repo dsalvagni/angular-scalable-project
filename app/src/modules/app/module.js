@@ -1,6 +1,6 @@
 define([
     '../../config/namespace',
-    './controller/AppCtrl',
+    './controller/appCtrl',
     './config/module.config'
 ], function (namespace,
              appCtrl,

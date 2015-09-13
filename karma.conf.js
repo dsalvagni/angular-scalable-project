@@ -15,9 +15,9 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             'app/vendor/angular/angular.min.js',
-            'app/vendor/angular/angular-mocks.js',
-            'app/vendor/angular/angular-route.min.js',
-            'app/vendor/angular/angular-ui-router.min.js',
+            'app/vendor/angular-mocks/angular-mocks.js',
+            'app/vendor/angular-route/angular-route.min.js',
+            'app/vendor/angular-ui-router/release/angular-ui-router.min.js',
             {pattern: 'app/app.js', included: false},
             {pattern: 'app/vendor/**/*.js', included: false},
             {pattern: 'app/src/**/*.js', included: false},
@@ -62,7 +62,7 @@ module.exports = function (config) {
         // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
         // - PhantomJS
         // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
 
 
         // If browser does not capture in given timeout [ms], kill it

@@ -1,9 +1,15 @@
 # Update
 - Adicionei o controle de pacotes pelo [Bower](http://bower.io), portanto, o Bower é uma dependência. Basta instalá-lo como NPM.
+
 > bower install && grunt
+
 - Adicionei uma task no grunt para relacionar as dependências do bower nas configurações do requirejs (main.js).
   Para adicionar no requireJS, basta rodar a task abaixo:
+
 > grunt bowerRequirejs
+
+- As dependências do instaladas pelo bower não são adicionadas automaticamente no test-main.js, usado pelo karma.
+  Por enquanto, deve ser feito manualmente.
   
 ---
 

@@ -20,6 +20,22 @@ module.exports = function (grunt) {
                 }
             }
         },
+        clean: [
+            './dist/'
+        ],
+        ngtemplates: {
+            default: {
+                src: 'app/src/**/*.html',
+                dest: 'dist/src/resources/views.js',
+                options: {
+                    module: "resources.views",
+                    standalone:true,
+                    url: function(path) {
+                        return path.substring('app/'.length);
+                    }
+                }
+            }
+        },
         watch: {
             files: ['app/**/*.less'],
             tasks: ['less']
