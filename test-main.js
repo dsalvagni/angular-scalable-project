@@ -11,11 +11,17 @@ for (var file in window.__karma__.files) {
 requirejs.config({
     baseUrl: '/base/app/',
     paths: {
-        angular: 'vendor/angular/angular',
+        angular: 'vendor/angular/angular.min',
         'angular-mocks': 'vendor/angular-mocks/angular-mocks',
         'angular-route': 'vendor/angular-route/angular-route',
         'angular-ui-router': 'vendor/angular-ui-router/release/angular-ui-router',
-        bootstrap: 'vendor/bootstrap/dist/js/bootstrap'
+        bootstrap: 'vendor/bootstrap/dist/js/bootstrap',
+        /**
+         * It is needed to declare the resource views file path
+         * to handle the file dependencies such as angular before
+         * the resource is loaded.
+         */
+        'resource-views':'src/resources/views'
     },
     packages: [
 
@@ -28,6 +34,11 @@ requirejs.config({
             ]
         },
         'angular-route': {
+            deps: [
+                'angular'
+            ]
+        },
+        'resource-views': {
             deps: [
                 'angular'
             ]
