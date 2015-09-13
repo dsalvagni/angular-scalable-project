@@ -20,9 +20,14 @@ module.exports = function (grunt) {
                 }
             }
         },
-        clean: [
-            './dist/'
-        ],
+        clean: {
+            allDist: {
+                src: ['./dist/']
+            },
+            htmlDist: {
+                src: ['./dist/src/**/*.html']
+            }
+        },
         ngtemplates: {
             default: {
                 src: 'app/src/**/*.html',
@@ -41,12 +46,49 @@ module.exports = function (grunt) {
             tasks: ['less']
         },
         copy: {
-            main: {
+            all: {
                 files: [
                     {
                         expand: true,
                         cwd: './app',
                         src: ['**'],
+                        dest: 'dist/',
+                        flatten: false,
+                        filter: 'isFile'
+                    }
+                ]
+            },
+            noViews: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: './app/src',
+                        src: ['**/*.js'],
+                        exclude: ['**/*Spec.js'],
+                        dest: 'dist/',
+                        flatten: false,
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        cwd: './app/vendor',
+                        src: ['**/*.js'],
+                        dest: 'dist/vendor',
+                        flatten: false,
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        cwd: './app/assets',
+                        src: ['css/**/*.css','fonts/**'],
+                        dest: 'dist/assets',
+                        flatten: false,
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        cwd: './app',
+                        src: ['*.js','*.html'],
                         dest: 'dist/',
                         flatten: false,
                         filter: 'isFile'
@@ -95,6 +137,18 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('default', ['bowerRequirejs']);
-    grunt.registerTask('dist', ['less', 'copy', 'requirejs']);
+    grunt.registerTask('dist', 'generates a dist version', function(){
+        var tasks = ['clean:allDist','less'];
+        if(grunt.option('templateCache'))
+        {
+            tasks.push('copy:noViews');
+        } else {
+            tasks.push('copy:all');
+        }
+        tasks.push('ngtemplates');
+        tasks.push('requirejs');
+        grunt.task.run(tasks);
+
+    });
 
 };
