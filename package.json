@@ -1,5 +1,12 @@
 {
   "name": "angular-scalable-project",
+  "description": "Skeleton to build scalable single-page applications",
+  "author": {
+    "name" : "Daniel Salvagni",
+    "email" : "danielsalvagni@gmail.com",
+    "url" : "http://dsalvagni.com.br"
+  },
+  "repository": "dsalvagni/angular-scalable-project",
   "devDependencies": {
     "bower": "^1.5.2",
     "grunt": "^0.4.*",
