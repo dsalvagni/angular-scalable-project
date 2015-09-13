@@ -1,6 +1,7 @@
 logs/*
 .grunt/*
 dist/
+test-results.xml
 app/vendor/*
 !.gitkeep
 node_modules/
