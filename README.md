@@ -7,6 +7,9 @@
   Para adicionar no requireJS, basta rodar a task abaixo:
 
 > grunt bowerRequirejs
+
+- As dependências do instaladas pelo bower não são adicionadas automaticamente no test-main.js, usado pelo karma.
+  Por enquanto, deve ser feito manualmente.
   
 ---
 
