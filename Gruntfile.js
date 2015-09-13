@@ -24,18 +24,31 @@ module.exports = function (grunt) {
             allDist: {
                 src: ['./dist/']
             },
-            htmlDist: {
-                src: ['./dist/src/**/*.html']
+            templateCache: {
+                src: [
+                    './dist/**/view',
+                    './dist/**/test',
+                    './dist/**/less',
+                    './dist/**/sass'
+                ]
+            }
+        },
+        cleanempty: {
+            templateCache: {
+                options: {
+                    files: false
+                },
+                src: ['dist/**/*']
             }
         },
         ngtemplates: {
             default: {
                 src: 'app/src/**/*.html',
-                dest: 'dist/src/resources/views.js',
+                dest: 'app/src/resources/views.js',
                 options: {
                     module: "resources.views",
-                    standalone:true,
-                    url: function(path) {
+                    standalone: true,
+                    url: function (path) {
                         return path.substring('app/'.length);
                     }
                 }
@@ -51,44 +64,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: './app',
-                        src: ['**'],
-                        dest: 'dist/',
-                        flatten: false,
-                        filter: 'isFile'
-                    }
-                ]
-            },
-            noViews: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: './app/src',
-                        src: ['**/*.js'],
-                        exclude: ['**/*Spec.js'],
-                        dest: 'dist/',
-                        flatten: false,
-                        filter: 'isFile'
-                    },
-                    {
-                        expand: true,
-                        cwd: './app/vendor',
-                        src: ['**/*.js'],
-                        dest: 'dist/vendor',
-                        flatten: false,
-                        filter: 'isFile'
-                    },
-                    {
-                        expand: true,
-                        cwd: './app/assets',
-                        src: ['css/**/*.css','fonts/**'],
-                        dest: 'dist/assets',
-                        flatten: false,
-                        filter: 'isFile'
-                    },
-                    {
-                        expand: true,
-                        cwd: './app',
-                        src: ['*.js','*.html'],
+                        src: ['**', '!**/*Spec.js'],
                         dest: 'dist/',
                         flatten: false,
                         filter: 'isFile'
@@ -106,7 +82,7 @@ module.exports = function (grunt) {
                         {name: 'app'}
                     ],
                     dir: "./dist",
-                    keepBuildDir: true,
+                    keepBuildDir: false,
                     locale: "en-us",
                     optimize: "uglify2",
                     skipDirOptimize: false,
@@ -137,16 +113,17 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('default', ['bowerRequirejs']);
-    grunt.registerTask('dist', 'generates a dist version', function(){
-        var tasks = ['clean:allDist','less'];
-        if(grunt.option('templateCache'))
-        {
-            tasks.push('copy:noViews');
-        } else {
-            tasks.push('copy:all');
+    grunt.registerTask('dist', 'generates a dist version', function () {
+        var tasks = ['clean:allDist',
+            'less',
+            'ngtemplates',
+            'copy:all',
+            'requirejs'];
+
+        if (grunt.option('templateCache')) {
+            tasks.push('clean:templateCache');
         }
-        tasks.push('ngtemplates');
-        tasks.push('requirejs');
+        tasks.push('cleanempty');
         grunt.task.run(tasks);
 
     });
