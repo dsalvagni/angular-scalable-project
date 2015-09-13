@@ -1,4 +1,4 @@
-# Update
+# Updates
 - Adicionei o controle de pacotes pelo [Bower](http://bower.io), portanto, o Bower é uma dependência. Basta instalá-lo como NPM.
 
 > bower install && grunt
@@ -11,6 +11,12 @@
 - As dependências do instaladas pelo bower não são adicionadas automaticamente no test-main.js, usado pelo karma.
   Por enquanto, deve ser feito manualmente.
   
+- Adicionado suporte ao $templateCache na versão de distribuição.
+  Para gerar uma versão de distribuição com suporte ao templateCache, 
+  basta usar a flag --templateCache
+  
+> grunt dist --templateCache
+
 ---
 
 Quando comecei a estudar o AngularJS e a procurar exemplos de uso e aplicações, sempre me deparava com aplicações simples, sem muitas implementações. O que é bom para pegar o conceito mas não ajuda muito quando é necessário estruturar uma aplicação que irá crescer significativamente.

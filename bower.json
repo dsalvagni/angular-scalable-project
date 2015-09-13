@@ -2,6 +2,10 @@
   "name": "angular-scalable-project",
   "version": "0.1.1",
   "homepage": "https://github.com/dsalvagni/angular-scalable-project",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dsalvagni/angular-scalable-project"
+  },
   "authors": [
     "Daniel Salvagni <danielsalvagni@gmail.com>"
   ],
@@ -11,7 +15,29 @@
     "angularjs",
     "requirejs",
     "AMD",
-    "SPA"
+    "SPA",
+    "Single-page application"
   ],
-  "license": "MIT"
+  "ignore": [
+    "logs/*",
+    ".grunt/*",
+    "dist/",
+    "test-results.xml",
+    "app/vendor/*",
+    "!.gitkeep",
+    "node_modules/",
+    "bower_components/",
+    "tmp",
+    ".DS_Store",
+    ".idea"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "~1.4.5",
+    "angular-mocks": "~1.4.5",
+    "angular-route": "~1.4.5",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "bootstrap": "~3.3.5",
+    "requirejs": "~2.1.20"
+  }
 }
