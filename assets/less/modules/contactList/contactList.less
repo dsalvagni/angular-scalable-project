@@ -1,0 +1,25 @@
+.contactList {
+  li.selected {
+    background-color: #0077b3;
+    color: #fff; 
+  }
+  &.scrollable {
+    max-height: 200px;
+    overflow: auto;
+  }
+  li:not(.selected):hover {
+    background-color: #ececec;
+  }
+  .label[title="Friends"] {
+    color: #FFFFFF;
+    background-color: #000080;
+  }
+  .label[title="Family"] {
+    color: #FFFFFF;
+    background-color: #00A000;
+  }
+  .label[title="Others"] {
+    color: #333;
+    background-color: #e0f2be;
+  }
+}

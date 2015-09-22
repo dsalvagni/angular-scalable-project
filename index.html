@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scalable AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic"/>
+    <link rel="stylesheet" href="assets/css/bootstrap.custom.min.css"/>
+    <link rel="stylesheet" href="assets/css/main.min.css"/>
+    <script data-main="main.js" src="vendor/requirejs/require.js"></script>
+</head>
+<body ng-controller="appCtrl">
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Scalable Project</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" ng-if="primaryNavigation.length > 0">
+                <li ng-repeat="item in primaryNavigation | orderBy: 'order'" ui-sref-active="active">
+                    <a ui-sref="{{item.stateName}}" ng-bind="item.title"></a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container">
+    <div ui-view></div>
+    <footer class="footer">
+        <hr/>
+        <p class="text-center">Made by <a href="http://dsalvagni.com.br">Daniel Salvagni</a></p>
+    </footer>
+</div>
+</body>
+</html>

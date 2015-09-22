@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Drink all the beers",
+    "done": true
+  },
+  {
+    "description": "Sleep everywhere",
+    "done": true
+  },
+  {
+    "description": "Wake up regret",
+    "done": true
+  },
+  {
+    "description": "Write all the tests",
+    "done": false
+  },
+  {
+    "description": "Blog about it",
+    "done": false
+  }
+]

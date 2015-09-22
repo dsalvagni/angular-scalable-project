@@ -1,0 +1,1 @@
+define(["src/config/namespace","app"],function(c){"use strict";var e,t;describe(c+".contacts",function(){beforeEach(function(){e=module(c+".contacts")}),it("should contactsCtrl be define",inject(function(c,e){var n=c.$new();t=e("contactsCtrl",{$scope:n}),expect(t).toBeDefined()}))})});
