@@ -31,7 +31,7 @@ define([], function () {
 
         function getSelected() {
             return vm.items.filter(function (item) {
-                return item.selected;
+                return item && item.selected;
             });
         }
         

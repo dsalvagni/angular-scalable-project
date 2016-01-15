@@ -10,7 +10,7 @@
         <h3 class="panel-title">Add new contact</h3>
     </div>
     <div class="panel-body">
-        <form ng-submit="vm.add(newItem)">
+        <form ng-submit="vm.add(vm.newItem)">
         <div class="form-group">
             <input type="text" class="form-control" ng-model="vm.newItem.name" placeholder="Name" required/>
         </div>
@@ -28,7 +28,7 @@
         <hr/>
         <div class="row">
             <div class="col-md-6"><button type="submit" class="btn btn-success btn-block">Save</button></div>
-            <div class="col-md-6"><a href="javascript:;" ng-click="showForm=false" class="btn btn-default btn-block">Cancel</a></div>
+            <div class="col-md-6"><a href="javascript:;" ng-click="vm.showForm=false" class="btn btn-default btn-block">Cancel</a></div>
         </div>
         </form>
     </div>
