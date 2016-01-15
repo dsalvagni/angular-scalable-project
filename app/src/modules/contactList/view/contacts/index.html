@@ -10,7 +10,7 @@
         <h3 class="panel-title">Add new contact</h3>
     </div>
     <div class="panel-body">
-        <form ng-submit="add(newItem)">
+        <form ng-submit="vm.add(newItem)">
         <div class="form-group">
             <input type="text" class="form-control" ng-model="vm.newItem.name" placeholder="Name" required/>
         </div>

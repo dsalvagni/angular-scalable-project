@@ -8,7 +8,7 @@ define([], function () {
         vm.groups = ['Friends','Family','Others'];
         vm.toggleSelected = toggleSelected;
         vm.add = add;
-        vm.getSelected = getSelected();
+        vm.getSelected = getSelected;
         vm.deleteSelected = deleteSelected;
 
         getAllContacts();
