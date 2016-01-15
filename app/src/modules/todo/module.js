@@ -2,17 +2,17 @@ define([
     '../../config/namespace',
     './controller/todoCtrl',
     './service/todoSvc',
-    './config/module.config'
+    './config/module.routes'
 ], function (namespace,
              todoCtrl,
              todoSvc,
-             moduleConfig) {
+             moduleRoutes) {
     'use strict';
     angular.module(namespace + '.todo', ['ui.router', namespace + '.navigation'])
         .controller('todoCtrl', todoCtrl)
         .service('todoSvc', todoSvc)
-        .config(moduleConfig)
-        .run(['PrimaryNavigation', function (PrimaryNavigation) {
+        .run(['PrimaryNavigation', 'RouterHelper', function (PrimaryNavigation, RouterHelper) {
+            RouterHelper.configureStates(moduleRoutes);
             PrimaryNavigation.add(
                 {
                     title: "Todo List",

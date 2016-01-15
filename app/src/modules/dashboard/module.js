@@ -1,12 +1,12 @@
 define([
     '../../config/namespace',
-    './config/module.config'
+    './config/module.routes'
 ], function (namespace,
-             moduleConfig) {
+             moduleRoutes) {
     'use strict';
     angular.module(namespace + '.dashboard', ['ui.router', namespace + '.navigation'])
-        .config(moduleConfig)
-        .run(['PrimaryNavigation', function (PrimaryNavigation) {
+        .run(['PrimaryNavigation','RouterHelper', function (PrimaryNavigation, RouterHelper) {
+            RouterHelper.configureStates(moduleRoutes);
             PrimaryNavigation.add(
                 {
                     title: "Dashboard",

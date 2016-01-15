@@ -1,29 +1,36 @@
-define([], function () {
+define(function () {
     'use strict';
+    todoSvc.$inject = ['$http', '$q'];
     /*@ngInject*/
-    var todoSvc = function ($http, $q) {
-        /**
-         * Private methods
-         */
-        var _getAllTasks = function () {
-            var future = $q.defer();
-            $http.get('./src/modules/todo/data/tasks.json').success(function (data) {
-                future.resolve({
-                    items: data
-                });
-            }).error(function (data, status) {
-                future.reject({
-                    data: data,
-                    status: status
-                });
-            });
-            return future.promise;
+    function todoSvc($http, $q) {
+
+        var service = {
+            getAllTasks: getAllTasks,
+            getAllUndone: getAllUndone
         };
 
-        var _getAllUndone = function () {
+        return service;
+
+        function getAllTasks() {
+            var future = $q.defer();
+            $http.get('./src/modules/todo/data/tasks.json')
+                .then(function (response) {
+                    future.resolve({
+                        items: response.data
+                    });
+                }).catch(function (data, status) {
+                    future.reject({
+                        data: data,
+                        status: status
+                    });
+                });
+            return future.promise;
+        }
+
+        function getAllUndone() {
             var future = $q.defer();
             var items = [];
-            _getAllTasks().then(function (data) {
+            getAllTasks().then(function (data) {
                 items = data.items.filter(function (item) {
                     return !item.done;
                 });
@@ -33,21 +40,8 @@ define([], function () {
             });
             return future.promise;
 
-        };
-
-        /**
-         * Public methods
-         */
-        return {
-            getAllTasks: function () {
-                return _getAllTasks();
-            },
-            getAllUndone: function () {
-                return _getAllUndone();
-            }
         }
-    };
+    }
 
-    todoSvc.$inject = ['$http', '$q'];
     return todoSvc;
 });

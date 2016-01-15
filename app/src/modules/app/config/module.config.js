@@ -1,5 +1,4 @@
-define([], function () {
-    var moduleConfig = function () {
-    };
+define(function () {
+    function moduleConfig() {}
     return moduleConfig;
 });

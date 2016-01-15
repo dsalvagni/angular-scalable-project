@@ -1,34 +1,44 @@
-define([], function () {
+define(function () {
     'use strict';
+    todo.$inject = ['todoSvc'];
     /*@ngInject*/
-    var todo = function ($rootScope, $scope, TodoSvc) {
-        $scope.items = [];
+    function todo(TodoSvc) {
+        var vm = this;
+
+        vm.items = [];
+        vm.add = add;
+        vm.getSelectedTasks = getSelectedTasks;
+        vm.deleteSelected = deleteSelected;
+
+        getAllTasks();
+        
         function getAllTasks() {
             TodoSvc.getAllTasks().then(function (data) {
-                $scope.items = data.items;
+                vm.items = data.items;
             });
         }
 
-        $scope.add = function (item, $event) {
+        function add(item, $event) {
             if ($event.keyCode !== 13) return false;
-            $scope.items.push({description: item.description, done: false});
-            $scope.item = {};
-        };
+            vm.items.push({description: item.description, done: false});
+            vm.item = {};
+        }
 
-        $scope.getSelectedTasks = function () {
-            return $scope.items.filter(function (item) {
+        function getSelectedTasks() {
+            return vm.items.filter(function (item) {
                 return item.done;
             });
-        };
-        $scope.deleteSelected = function (items) {
+        }
+        
+        function deleteSelected(items) {
             if (!confirm('Are you sure?')) return false;
-            $scope.items = items.filter(function (item) {
+            vm.items = items.filter(function (item) {
                 return !item.done;
             });
-        };
-        getAllTasks();
+        }
+        
 
-    };
-    todo.$inject = ['$rootScope', '$scope', 'todoSvc'];
+    }
+    
     return todo;
 });
