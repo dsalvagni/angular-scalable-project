@@ -1,6 +1,5 @@
-define([], function () {
+define(function () {
     'use strict';
-    var moduleConfig = function () {
-    };
+    function moduleConfig() {}
     return moduleConfig;
 });

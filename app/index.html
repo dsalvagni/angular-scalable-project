@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/main.min.css"/>
     <script data-main="main.js" src="vendor/requirejs/require.js"></script>
 </head>
-<body ng-controller="appCtrl">
+<body ng-controller="appCtrl as app">
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -32,8 +32,8 @@
             <a class="navbar-brand" href="#">Scalable Project</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav" ng-if="primaryNavigation.length > 0">
-                <li ng-repeat="item in primaryNavigation | orderBy: 'order'" ui-sref-active="active">
+            <ul class="nav navbar-nav" ng-if="app.primaryNavigation.length > 0">
+                <li ng-repeat="item in app.primaryNavigation | orderBy: 'order'" ui-sref-active="active">
                     <a ui-sref="{{item.stateName}}" ng-bind="item.title"></a>
                 </li>
             </ul>

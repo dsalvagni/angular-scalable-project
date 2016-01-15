@@ -1,35 +1,32 @@
-define([], function () {
+define(function () {
     'use strict';
+    contactsSvc.$inject = ['$http', '$q'];
     /*@ngInject*/
-    var contactsSvc = function ($http, $q) {
-        /**
-         * Private methods
-         */
-        var _getAllContacts = function () {
-            var future = $q.defer();
-            $http.get('./src/modules/contactList/data/contacts.json').success(function (data) {
-                future.resolve({
-                    items: data
-                });
-            }).error(function (data, status) {
-                future.reject({
-                    data: data,
-                    status: status
-                });
-            });
-            return future.promise;
+    function contactsSvc($http, $q) {
+
+        var service = {
+            getAllContacts: getAllContacts
         };
 
-        /**
-         * Public methods
-         */
-        return {
-            getAllContacts: function () {
-                return _getAllContacts();
-            }
-        }
-    };
+        return service;
 
-    contactsSvc.$inject = ['$http', '$q'];
+
+        function getAllContacts() {
+            var future = $q.defer();
+            $http.get('./src/modules/contactList/data/contacts.json')
+                .then(function (response) {
+                    future.resolve({
+                        items: response.data
+                    });
+                }).catch(function (data, status) {
+                    future.reject({
+                        data: data,
+                        status: status
+                    });
+                });
+            return future.promise;
+        }
+    }
+
     return contactsSvc;
 });

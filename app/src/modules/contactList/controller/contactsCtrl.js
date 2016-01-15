@@ -1,39 +1,50 @@
 define([], function () {
     'use strict';
+    contacts.$inject = ['contactsSvc'];
     /*@ngInject*/
-    var contacts = function ($rootScope, $scope, contactsSvc) {
-        $scope.items = [];
-        $scope.groups = ['Friends','Family','Others'];
+    function contacts(contactsSvc) {
+        var vm = this;
+        vm.items = [];
+        vm.groups = ['Friends','Family','Others'];
+        vm.toggleSelected = toggleSelected;
+        vm.add = add;
+        vm.getSelected = getSelected();
+        vm.deleteSelected = deleteSelected;
+
+        getAllContacts();
+        
         function getAllContacts() {
             contactsSvc.getAllContacts().then(function (data) {
-                $scope.items = data.items;
+                vm.items = data.items;
             });
         }
 
-        $scope.toggleSelected = function (item) {
+        function toggleSelected(item) {
             item.selected = !item.selected;
-        };
+        }
 
-        $scope.add = function (newItem) {
-            $scope.items.push(newItem);
-            delete $scope.newItem;
-            $scope.showForm = false;
-        };
+        function add(newItem) {
+            vm.items.push(newItem);
+            delete vm.newItem;
+            vm.showForm = false;
+        }
 
-        $scope.getSelected = function () {
-            return $scope.items.filter(function (item) {
+        function getSelected() {
+            return vm.items.filter(function (item) {
                 return item.selected;
             });
-        };
-        $scope.deleteSelected = function (items) {
+        }
+        
+        function deleteSelected(items) {
             if (!confirm('Are you sure?')) return false;
-            $scope.items = items.filter(function (item) {
+            vm.items = items.filter(function (item) {
                 return !item.selected;
             });
-        };
-        getAllContacts();
+        }
+        
+        
 
-    };
-    contacts.$inject = ['$rootScope', '$scope', 'contactsSvc'];
+    }
+    
     return contacts;
 });

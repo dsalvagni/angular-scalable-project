@@ -1,14 +1,14 @@
-define([], function () {
+define(function () {
     'use strict';
+    appConfig.$inject = ['$urlRouterProvider'];
     /*@ngInject*/
-    var appConfig = function ($urlRouterProvider) {
+    function appConfig($urlRouterProvider) {
         $urlRouterProvider
         /**
          * Redirect to root
          */
             .otherwise('/dashboard');
-    };
+    }
 
-    appConfig.$inject = ['$urlRouterProvider'];
     return appConfig;
 });

@@ -1,7 +1,5 @@
 define(function () {
     'use strict';
-    var bootstrap = function () {
-
-    };
+    function bootstrap() {}
     return bootstrap;
 });
