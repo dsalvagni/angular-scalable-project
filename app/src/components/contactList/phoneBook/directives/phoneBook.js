@@ -6,7 +6,7 @@ define(function () {
             restrict: 'E',
             templateUrl: partialPath + '_phoneBook.html',
             controller: phoneBookCtrl,
-            controllerAs: 'vm',
+            controllerAs: 'pb', //phoneBook
             bindToController: true
         }
     }

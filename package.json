@@ -27,6 +27,7 @@
     "shelljs": "^0.2.6"
   },
   "scripts": {
+    "build": "npm install && bower install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1",
     "pretest": "npm install",

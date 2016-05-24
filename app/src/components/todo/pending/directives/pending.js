@@ -12,7 +12,7 @@ define(function () {
     }
 
     undoneCtrl.$inject = ['todoSvc'];
-    
+
     /*@ngInject*/
     function undoneCtrl(todoSvc) {
         var items = [],
@@ -29,7 +29,7 @@ define(function () {
         };
         vm.add = function (item, $event) {
             if ($event.keyCode !== 13) return false;
-            items.push(item);
+            items.push({description: item.description, done: false});
             vm.item = {};
         };
         todoSvc.getAllUndone().then(function (data) {
@@ -39,6 +39,6 @@ define(function () {
             vm.isReady = true;
         });
     }
-    
+
     return undone;
 });

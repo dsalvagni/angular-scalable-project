@@ -4,11 +4,11 @@
     </div>
     <div class="panel-body">
         <div class="form-group">
-            <input type="text" class="form-control input-sm" ng-model="vm.searchText" placeholder="Search..."/>
+            <input type="text" class="form-control input-sm" ng-model="pb.searchText" placeholder="Search..."/>
         </div>
     </div>
     <ul class="list-group contactList scrollable">
-        <li class="list-group-item" ng-repeat="item in vm.items">
+        <li class="list-group-item" ng-repeat="item in pb.items | filter:pb.searchText">
             <strong>{{item.name}}</strong> <span class="label label-default pull-right" title="{{item.group}}">{{item.group}}</span>
             <ul class="list-unstyled list-inline">
                 <li ng-if="item.email"><i class="glyphicon glyphicon-envelope"></i> {{item.email}}</li>

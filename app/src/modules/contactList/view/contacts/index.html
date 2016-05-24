@@ -40,7 +40,7 @@
             <input type="text" class="form-control input-sm" ng-model="vm.searchText" placeholder="Search"/>
         </div>
         <ul class="list-group contactList">
-            <li class="list-group-item" ng-repeat="item in vm.items | filter:searchText"
+            <li class="list-group-item" ng-repeat="item in vm.items | filter:vm.searchText"
                 ng-click="vm.toggleSelected(item)" ng-class="{'selected':item.selected}">
                 <strong>{{item.name}}</strong> <span class="label label-default pull-right" title="{{item.group}}">{{item.group}}</span>
                 <ul class="list-unstyled list-inline">
@@ -50,7 +50,7 @@
             </li>
         </ul>
         <div>
-            <a href="javascript:;" ng-click="vm.deleteSelected(items)" ng-show="vm.getSelected().length > 0"
+            <a href="javascript:;" ng-click="vm.deleteSelected(vm.items)" ng-show="vm.getSelected().length > 0"
                class="btn btn-block btn-danger">Delete</a>
         </div>
     </div>
