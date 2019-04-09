@@ -44,7 +44,7 @@ With the concept discussed in this post, you can configure the RequireJS compile
 
 ## 2\. Concept
 
-The structure of the application is divided into ** modules ** and ** components **. And, below this, the division by feature is made. The ** modules ** are a macro view of a feature and may contain a collection of _components_. For example, in a social networking application, the _profil_ module will contain components like: my friends, my photos. In this way, the ** components ** represent a micro view of specific functionality or a redundant function, which can be used at different times.
+The structure of the application is divided into **modules** and **components**. And, below this, the division by feature is made. The **modules** are a macro view of a feature and may contain a collection of _components_. For example, in a social networking application, the _profil_ module will contain components like: my friends, my photos. In this way, the **components** represent a micro view of specific functionality or a redundant function, which can be used at different times.
 
 ## 3 \. Structure
 
@@ -145,7 +145,7 @@ The context groups the components together. As in the example mentioned above, o
 
 Contains all directives related to the component.
 
-#### / {context} / {component} / controllers *
+#### / {context} / {component} / controllers
 
 Contains all controllers related to the component. * I only recommend using external controllers if the code is too long, it is bad to keep in the same code of the directive.
 
