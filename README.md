@@ -1,5 +1,5 @@
 # Updates
-- I've added package control to [Bower] (http://bower.io), so Bower is a dependency. Just install it as NPM.
+- I've added package control to [Bower](http://bower.io), so Bower is a dependency. Just install it as NPM.
 
 > bower install && grunt
 
@@ -25,7 +25,7 @@ So I share my design framework for large-scale applications, making it modular -
 
 ## 1\. Introduction
 
-This is an application framework idea that has worked very well and that is the main reason I share. To illustrate more clearly, I created a simple project, with 2 modules and 2 components, to make visible the use of this design structure. You can check the project [here] (https://github.com/dsalvagni/angular-scalable-project) and run a demo version [here] (http://dsalvagni.github.io/angular-scalable-project ).
+This is an application framework idea that has worked very well and that is the main reason I share. To illustrate more clearly, I created a simple project, with 2 modules and 2 components, to make visible the use of this design structure. You can check the project [here](https://github.com/dsalvagni/angular-scalable-project) and run a demo version [here](http://dsalvagni.github.io/angular-scalable-project).
 
 The main application of these concepts is in the Single Page Application model with a _bundle_ file with all the modules. I want to improve these models to use, even in SPA, a way to load the modules dynamically as requested. Using lazy load with RequireJS in this way.
 
@@ -34,13 +34,13 @@ With the concept discussed in this post, you can configure the RequireJS compile
 ### 1.1 Requirements and Dependencies
 
 1. Javascript
-2. [AngularJS] (http://angularjs.org)
-3. [RequireJS] (http://requirejs.org)
-4. [AMD] (http://requirejs.org/docs/whyamd.html)
-5. [Grunt] (http://gruntjs.com)
-6. [Bower] (http://bower.io)
-7. [KarmaJS] (http://karma-runner.github.io/0.12/index.html)
-8. [Protractor] (https://angular.github.io/protractor/)
+2. [AngularJS](http://angularjs.org)
+3. [RequireJS](http://requirejs.org)
+4. [AMD](http://requirejs.org/docs/whyamd.html)
+5. [Grunt](http://gruntjs.com)
+6. [Bower](http://bower.io)
+7. [KarmaJS](http://karma-runner.github.io/0.12/index.html)
+8. [Protractor](https://angular.github.io/protractor/)
 
 ## 2\. Concept
 
@@ -154,7 +154,7 @@ Contains all controllers related to the component. * I only recommend using exte
 
 Contains all component views. All views should contain the prefix "_", as in the example: "_undone.html". It is easier to identify when debugging the application.
 
-####/{context}/{component}/component.js
+#### /{context}/{component}/component.js
 
 Like the modules, the components have the component instance file that loads the files with AMD and registers in the angular.
 
