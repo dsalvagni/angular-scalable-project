@@ -1,185 +1,187 @@
 # Updates
-- Adicionei o controle de pacotes pelo [Bower](http://bower.io), portanto, o Bower é uma dependência. Basta instalá-lo como NPM.
+- I've added package control to [Bower] (http://bower.io), so Bower is a dependency. Just install it as NPM.
 
 > bower install && grunt
 
-- Adicionei uma task no grunt para relacionar as dependências do bower nas configurações do requirejs (main.js).
-  Para adicionar no requireJS, basta rodar a task abaixo:
+- I added a task in grunt to list the dependencies of the bower in the requirejs (main.js) settings.
+Â Â To add in requireJS, just run the task below:
 
 > grunt bowerRequirejs
 
-- As dependências do instaladas pelo bower não são adicionadas automaticamente no test-main.js, usado pelo karma.
-  Por enquanto, deve ser feito manualmente.
-  
-- Adicionado suporte ao $templateCache na versão de distribuição.
-  Para gerar uma versão de distribuição com suporte ao templateCache, 
-  basta usar a flag --templateCache
-  
+- The dependencies of the installed bower are not automatically added in test-main.js, used by karma.
+Â Â For now, it should be done manually.
+Â Â 
+- Added support for $ templateCache in the distribution version.
+Â Â To generate a distribution version with templateCache support,
+Â Â just use the flag --templateCache
+Â Â 
 > grunt dist --templateCache
 
 ---
 
-Quando comecei a estudar o AngularJS e a procurar exemplos de uso e aplicações, sempre me deparava com aplicações simples, sem muitas implementações. O que é bom para pegar o conceito mas não ajuda muito quando é necessário estruturar uma aplicação que irá crescer significativamente.
+When I started studying AngularJS and looking for examples of use and applications, I always came across simple applications without many implementations. Which is good to get the concept but does not help much when it is necessary to structure an application that will grow significantly.
 
-Assim, compartilho a minha estrutura de projetos para aplicações de larga escala, tornando modular - como deve ser - e de fácil manutenção.
+So I share my design framework for large-scale applications, making it modular - as it should be - and easy to maintain.
 
-## 1\. Introdução
+## 1\. Introduction
 
-Essa é uma ideia de estrutura de aplicação que tem funcionado muito bem e esse é o principal motivo de eu compartilhar. Para exemplificar de uma forma mais clara, criei um projeto simples, com 2 módulos e 2 componentes, para que seja visível a utilização dessa estrutura de projeto. Podes conferir o projeto [aqui](https://github.com/dsalvagni/angular-scalable-project) e executar uma versão demo [aqui](http://www.dsalvagni.com.br/angular-scalable-project).
+This is an application framework idea that has worked very well and that is the main reason I share. To illustrate more clearly, I created a simple project, with 2 modules and 2 components, to make visible the use of this design structure. You can check the project [here] (https://github.com/dsalvagni/angular-scalable-project) and run a demo version [here] (http://dsalvagni.github.io/angular-scalable-project ).
 
-A principal aplicação desses conceitos é no modelo Single Page Application com um arquivo _bundle_ com todos os módulos. Pretendo aprimorar esses modelo para usar, mesmo na SPA, um modo de carregar os módulos dinamicamente conforme requisitado. Usando, dessa forma, o lazy load com o RequireJS. 
+The main application of these concepts is in the Single Page Application model with a _bundle_ file with all the modules. I want to improve these models to use, even in SPA, a way to load the modules dynamically as requested. Using lazy load with RequireJS in this way.
 
-Com o conceito discutido nesse post, é possível configurar o compile do RequireJS no Gruntfile.js para compilar módulo a módulo, como se cada módulo fosse um _bundle_. Acredito que seja pouco vantajoso esse formato, porque o volume de requisições de arquivos continuara alto.
+With the concept discussed in this post, you can configure the RequireJS compile in Gruntfile.js to compile module-to-module, as if each module were a _bundle_. I believe that this format is not advantageous, because the volume of file requests will continue high.
 
-### 1.1 Requisitos e Dependências
+### 1.1 Requirements and Dependencies
 
-1.  Javascript
-2.  [AngularJS](http://angularjs.org)
-3.  [RequireJS](http://requirejs.org)
-4.  [AMD](http://requirejs.org/docs/whyamd.html)
-5.  [Grunt](http://gruntjs.com)
-6.  [Bower](http://bower.io)
-7.  [KarmaJS](http://karma-runner.github.io/0.12/index.html)
-8.  [Protractor](https://angular.github.io/protractor/)
+1. Javascript
+2. [AngularJS] (http://angularjs.org)
+3. [RequireJS] (http://requirejs.org)
+4. [AMD] (http://requirejs.org/docs/whyamd.html)
+5. [Grunt] (http://gruntjs.com)
+6. [Bower] (http://bower.io)
+7. [KarmaJS] (http://karma-runner.github.io/0.12/index.html)
+8. [Protractor] (https://angular.github.io/protractor/)
 
-## 2\. Conceito
+## 2\. Concept
 
-A estrutura da aplicação é dividia em **módulos** e **componentes**. E, abaixo dessa, é feita a divisão por feature. Os **módulos** são uma visão macro de uma funcionalidade e podem conter uma coleção de _componentes_. Por exemplo, em uma aplicação de rede social, o módulo de _perfil_ irá conter componentes do tipo: meus amigos, minhas fotos. Dessa forma, os **componentes** representam uma visão micro de uma funcionalidade ou uma função específica redundante, que pode ser utilizada em diversos momentos.
+The structure of the application is divided into ** modules ** and ** components **. And, below this, the division by feature is made. The ** modules ** are a macro view of a feature and may contain a collection of _components_. For example, in a social networking application, the _profil_ module will contain components like: my friends, my photos. In this way, the ** components ** represent a micro view of specific functionality or a redundant function, which can be used at different times.
 
-## 3\. Estrutura
+## 3 \. Structure
 
-Estruturei a aplicação da seguinte maneira:
+I structured the application as follows:
 
 *   **/**
 
-    Gruntfile, karma.conf, package.json e readme.md
+Â Â Â Â Gruntfile, karma.conf, package.json, and readme.md
 
-*   **/app**
+* **/app**
 
-    Contém todos os código fontes da aplicação.
+Â Â Â Â Contains all application source code.
 
-    *   **/app.js**
+Â Â Â Â * **/app.js**
 
-        Arquivo do módulo principal, o qual carrega as dependências e instancia os módulos.
+Â Â Â Â Â Â Â Â Main module file, which loads the dependencies and instantiates the modules.
 
-    *   **/index.html**
+Â Â Â Â * **/index.html**
 
-        Inicialização da aplicação
+Â Â Â Â Â Â Â Â Initializing the application
 
-    *   **/main.js**
+Â Â Â Â * **/main.js**
 
-        Arquivo de configuração do para utilização com o RequireJS, para carregar os módulos e gerar, posteriormente, o bundle file.
+Â Â Â Â Â Â Â Â The configuration file for use with RequireJS, to load the modules and subsequently generate the bundle file.
 
-    *   **/assets**
+Â Â Â Â * **/assets**
 
-        Arquivos css, webfonts, imagens e arquivos de préprocessadores (less, sass, etc).
+Â Â Â Â Â Â Â Â Css files, webfonts, images and preprocessor files (less, sass, etc).
 
-    *   **/src**
+Â Â Â Â * **/src**
 
-        Contém todos os código fontes dos módulos e componentes, bem como configurações gerais da aplicação.
+Â Â Â Â Â Â Â Â Contains all source code for modules and components as well as general application settings.
 
-        *   **/components**
+Â Â Â Â Â Â Â Â * **/components**
 
-            Contém todos os código fontes dos componentes.
+Â Â Â Â Â Â Â Â Â Â Â Â Contains all component source code.
 
-        *   **/config**
+Â Â Â Â Â Â Â Â * **/config**
 
-            Contém as configurações da aplicação. Neste exemplo, somente o nome da aplicação.
+Â Â Â Â Â Â Â Â Â Â Â Â Contains the application settings. In this example, only the name of the application.
 
-        *   **/modules**
+Â Â Â Â Â Â Â Â * **/modules**
 
-            Contém todos os código fontes dos módulos.
+Â Â Â Â Â Â Â Â Â Â Â Â Contains all source code for modules.
 
-    *   **/vendor**
+Â Â Â Â * **/vendor**
 
-        Contém todas as bibliotecas e dependências externas.
+Â Â Â Â Â Â Â Â Contains all libraries and external dependencies.
 
-*   **/dist**
+* **/dist**
 
-    Contém todos os arquivos gerados para a versão de distribuição.
+Â Â Â Â Contains all files generated for the distribution version.
 
-*   **/e2e-tests**
+* **/e2e-tests**
 
-    Todos os testes end2end com o protractor.
+Â Â Â Â All end2end tests with the protractor.
 
 ### 3.1 Namespace
 
-Guardo o nome da aplicação em um arquivo e compartilho entre os módulos e componentes, assim todos ficam com o mesmo prefixo. Utilizo por organização.
+I save the name of the application in a file and share between the modules and components, so everyone has the same prefix. I use it by the organization.
 
-### 3.2 Estrutura de Módulos
+### 3.2 Module Structure
 
-Conforme mencionado anteriormente, os módulos são as visões macros das funcionalidades da aplicação. Podem conter seus próprios controllers, services, filters, etc. Os módulos estão organizados da seguinte maneira:
+As mentioned earlier, the modules are the macro views of the application's features. They can contain their own controllers, services, filters, etc. The modules are organized as follows:
 
-#### /config
+#### / config
 
-Guarda o arquivo de configuração do módulo, module.config.js, com as informações de rotas bem como outras configurações necessárias para o funcionamento do módulo.
+Saves the module configuration file, module.config.js, with the route information as well as other settings required for module operation.
 
-#### /controller
+#### / controller
+Contains all controllers related to the module. All controllers follow the filename pattern: {name}Ctrl - both file and controller registry.
 
-Contém todos os controllers relacionados ao módulo. Todos os controllers seguem o padrão de nomeclatura: {nome}Ctrl - tanto de arquivo como do registro do controller.
+#### / service
 
-#### /service
+Contains all services related to the module. All services follow the naming standard: {name} Svc - both file and service registry.
 
-Contém todos os serviços relacionados ao módulo. Todos os serviços seguem o padrão de nomeclatura: {nome}Svc - tanto de arquivo como de registro de serviço.
+#### / test
 
-#### /test
+Contains all unit test files.
 
-Contém todos os arquivos de testes unitários.
+#### / view
 
-#### /view
-
-Todas as views são organizadas em pastas relacionadas aos respectivos controllers. Caso exista um view parcial, comum a mais de um módulo, deve ser usada na pasta /view/partial. Caso seja uma view parcial, comum apenas a um controller, fica dentro da pasta da view do controller, com prefixo "_". Exemplo: "_sidebar.html"
+All views are organized into folders related to their controllers. If there is a partial view, common to more than one module, it should be used in the / view / partial folder. If it is a partial view, common only to a controller, it is inside the folder of the view of the controller, prefixed with "_". Example: "_sidebar.html"
 
 #### /module.js
 
-É o arquivo da instancia do módulo. Todas os arquivos do módulo e dependências são carregados usando o AMD e registrados no angular para posteriormente serem relacionados no arquivo do módulo principal.
+This is the module instance file. All module files and dependencies are loaded using AMD and registered in the angular for later being listed in the main module file.
 
-### 3.3 Estrutura de Componentes
+### 3.3 Component Structure
 
-Conforme mencionado anteriormente, os componentes são as visões micros das funcionalidades da aplicação. Ainda, podem ser componentes independentes de qualquer módulo, com funcionalidades exclusivos. Podem conter seus próprios controllers, services, filters, etc. Os componentes estão organizados da seguinte maneira, dentro da pasta /src/components:
+As mentioned earlier, the components are the micro views of the application's features. Furthermore, they can be independent components of any module, with unique functionalities. They can contain their own controllers, services, filters, etc. The components are organized as follows, inside the /src/components folder:
 
-#### /{contexto}/{componente}
+#### / {context} / {component}
 
-O contexto agrupa os componentes. Como no exemplo mencionado acima, da rede social, o contexto dos componentes seria: perfil. Nesse projeto, temos 2 contextos: todo e contactList.
+The context groups the components together. As in the example mentioned above, of the social network, the context of the components would be: profile. In this project, we have 2 contexts: all and contactList.
 
-#### /{contexto}/{componente}/directives
+#### / {context} / {component} / directives
 
-Contém todas as diretivas relacionadas ao componente.
+Contains all directives related to the component.
 
-#### /{contexto}/{componente}/controllers*
+#### / {context} / {component} / controllers *
 
-Contém todas as controllers relacionadas ao componente. * Só recomendo o uso de controllers externos caso o código seja bem extenso, que fique ruim manter no mesmo código da diretiva.
+Contains all controllers related to the component. * I only recommend using external controllers if the code is too long, it is bad to keep in the same code of the directive.
 
-#### /{contexto}/{componente}/view
+#### / {context} / {component} / view
 
-Contém todas as views do componente. Todas as views devem conter o prefixo "_", como no exemplo: "_undone.html". É mais fácil de identificar quando estiver depurando a aplicação.
 
-#### /{contexto}/{componente}/component.js
+Contains all component views. All views should contain the prefix "_", as in the example: "_undone.html". It is easier to identify when debugging the application.
 
-Da mesma forma que os módulos, os componentes possuem o arquivo de instancia do componente que carrega os arquivos com o AMD e registra no angular.
+####/{context}/{component}/component.js
+
+Like the modules, the components have the component instance file that loads the files with AMD and registers in the angular.
 
 ### 3.4 app.js
 
-Arquivo principal da aplicação, carrega todas as dependências utilizando o AMD e registra em um módulo principal, no angular.
+Main application file, loads all dependencies using AMD and registers in a main, non-angular module.
 
 ### 3.5 main.js
 
-Arquivo de configuração do RequireJS, onde carrego todas as bibliotecas de terceiros e inicio a aplicação.
+RequireJS configuration file, where I load all third-party libraries and start the application.
 
-## 4\. Testes
+## 4 \. Tests
 
-Uma das minhas preocupações quando comecei a criar este modelo foi permitir que ele fosse "testável", e é. É possível testar toda a aplicação com testes unitários utilizando o KarmaJS e testes end2end utilizando o Protractor. Por convenção, os testes end2end ficam na pasta raiz da aplicação e os testes unitários devem estar na pasta **/test** dentro do seu respectivo módulo.
+One of my concerns, when I started creating this model, was to allow it to be "testable", and it is. You can test the entire application with unit tests using KarmaJS and end2end tests using the Protractor. By convention, the end2end tests are in the root folder of the application and the unit tests must be in the ** / test ** folder within their respective module.
 
-## 5\. Versão de Distribuição
+## 5 \. Distribution Version
 
-Para rodar a aplicação em modo de desenvolvimento é simples, basta executar o comando abaixo na pasta raiz do projeto. A aplicação estará disponível no endereço: http://localhost:8000/app/ `npm start`
+To run the application in development mode is simple, just run the command below in the project root folder. The application will be available at: http://localhost:8000/app/
 
-A versão de distruibuição é gerada a partir de uma _task_ do Grunt, executada pelo comando abaixo. `grunt dist` Após executada a _task_, a aplicação estará disponível na pata **/dist** e pode ser usado em produção.
+ `npm start`
 
-## 6\. Considerações
+The release version is generated from a Grunt _task_, executed by the command below. `grunt dist` After running _task_, the application will be available on the paw ** / dist ** and can be used in production.
 
-Esse modelo não é uma regra, é uma alternativa. Uma das maravilhas de trabalhar com projetos web é poder construí-los de diversas maneiras dependendo, principalmente, do objetivo final. Porém, quando se trabalha em empresas que mantém diversos projetos com suas respectivas equipes, é importante manter as equipes alinhadas quanto ao padrão de desenvolvimento de código. 
+## 6 \. Considerations
 
-Quando estruturei esse modelo, meu objetivo foi criar um padrão para desenvolvimento de aplicações em equipes que não necessariamente iniciam o projeto junto. Mas sim, equipes que são montadas por desenvolvedores alocados de um projeto ou de outro, o que é uma prática comum. Dessa forma, todo desenvolvedor que entra no projeto, independente da fase que isso acontece, possui um modelo de aplicação para seguir e irá produzir, em toeria, um código legível por todas os desenvolvedores que participam do projeto. 
+This model is not a rule, it is an alternative. One of the wonders of working with web projects is to be able to build them in different ways depending, mainly, on the final goal. However, when working in companies that maintain several projects with their respective teams, it is important to keep the teams aligned to the code development pattern.
 
-Esse modelo não resolve todos os problemas de padronização de código, mas tenho certeza de que se aplicado, será fundamental - seguido por práticas como code review, refatoring e outras.
+When I structured this model, my goal was to create a standard for application development in teams that do not necessarily start the project together. But yes, teams that are assembled by developers allocated from one project or another, which is a common practice. In this way, every developer who enters the project, regardless of the phase that happens, has an application model to follow and will produce, in theory, a code readable by all the developers that participate in the project.
+
+This model does not solve all the code standardization problems, but I'm sure that if applied, it will be fundamental - followed by practices like code review, refactoring and others.
